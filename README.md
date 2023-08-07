@@ -5,19 +5,22 @@ The goal of this project will be to create a sustainable, easy to manage tokenom
 Create a functional, tested oToken system for Oath and/or Grain which follows Bunni’s oLIT specification. This system should use the Bonded Oath pool for an oracle. Additionally, create a contract that allows users to burn their oTokens and receive 100% of the Oath to create a bOath LP that remains locked in the protocol for 6 months. Work with Munchies and Morgan to implement these solutions on the front end.
 
 Strengths:
--Can help offset selling pressure that normal token rewards would cause
-    -By allowing people to use the options, given long enough expiries, they'll be incentivized to hold longer rather than dumping immediately when the rewards are received 
--Allows for additional capital to be kept by protocols
-    -Additional capital for protocol allows for continued funding of devs and further life of the project, increasing the liklihood that tokens don't dump and continue to rise
-    -Such a positive spiral would skyrocket the demand and utility for Option Tokens
--Wide array of possibilities for implementation
-    -Because of the adaptability of the concept and token, it provides a lot of opportunity for protocols to implement it 
+- Can help offset selling pressure that normal token rewards would cause
+    - By allowing people to use the options, given long enough expiries, they'll be incentivized to hold longer rather than dumping immediately when the rewards are received 
+- Allows for additional capital to be kept by protocols
+    - Additional capital for protocol allows for continued funding of devs and further life of the project, increasing the liklihood that tokens don't dump and continue to rise
+    - Such a positive spiral would skyrocket the demand and utility for Option Tokens
+- Wide array of possibilities for implementation
+    - Because of the adaptability of the concept and token, it provides a lot of opportunity for protocols to implement it
+- Both Lookee and Ben have solid experience in solidity and this project is heavily focused on solidity
+
 
 Weaknesses:
--Provides somewhat of a sell pressure relief value via incentive to not dump immediately but also does push off sell pressure until later (delays/defers)
--Somewhat a new idea, may provide attack vectors that haven't been found yet (but is the case with all newer token styles)
--Initial acceptance by broader crypto community and users
-    -Because it is new/novel, people may not want to use it as readily as more established types of reward systems
+- Provides somewhat of a sell pressure relief value via incentive to not dump immediately but also does push off sell pressure until later (delays/defers)
+- Somewhat a new idea, may provide attack vectors that haven't been found yet (but is the case with all newer token styles)
+- Initial acceptance by broader crypto community and users
+    - Because it is new/novel, people may not want to use it as readily as more established types of reward systems
+
 
 Opportunities:
 - Building over a novel DeFi concept with guidance from industry experts
