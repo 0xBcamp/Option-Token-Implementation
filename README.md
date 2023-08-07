@@ -31,3 +31,5 @@ Threats:
 - Deciding the optimal way to do things may be difficult depending on the chosen implementation
 - Fine-tuning of parameters. (picking optimal vesting durations, multipliers, etc. may be difficult)
     -It is unlikely users may pick up on this to a heavy degree but the implementation could heavily effect the success of the project
+- Massive accumulation of whales if using non-expiry
+    -If no expiry is used, it does provide less immediate sell pressure but also can leave to a sword of damacles where whales accumulate large positions over time
