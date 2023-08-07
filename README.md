@@ -13,6 +13,7 @@ Strengths:
 - Wide array of possibilities for implementation
     - Because of the adaptability of the concept and token, it provides a lot of opportunity for protocols to implement it
 - Both Lookee and Ben have solid experience in solidity and this project is heavily focused on solidity
+- Lookee and Ben are only one hour apart on time zones so syncing up is easy
 
 
 Weaknesses:
