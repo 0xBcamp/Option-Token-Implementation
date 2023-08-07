@@ -15,7 +15,7 @@ Strengths:
 - Both Lookee and Ben have solid experience in solidity and this project is heavily focused on solidity
 - Lookee and Ben are only one hour apart on time zones so syncing up is easy
 - Excellent oversight from Eidolon and Bytemasons team
-      - Will allow us to overcome many challenges that may have become significant without experience mentorship
+    - Will allow us to overcome many challenges that may have become significant without experience mentorship
 
 
 Weaknesses:
