@@ -39,3 +39,7 @@ Threats:
     -It is unlikely users may pick up on this to a heavy degree but the implementation could heavily effect the success of the project
 - Massive accumulation of whales if using non-expiry
     -If no expiry is used, it does provide less immediate sell pressure but also can leave to a sword of damacles where whales accumulate large positions over time
+
+
+Link to Balancer review:
+https://docs.google.com/document/d/1V_OW-ixq8E4fZ_rII-42ZWF-dh0h7oVY7VI-7J6hGDU/edit
