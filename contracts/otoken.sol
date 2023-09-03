@@ -1,17 +1,17 @@
 pragma solidity ^0.8.13;
 
 import "./options/interfaces/IOption.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 //bring in proper libraries for inheritance and security
 
-contract otoken is AccessControl, ERC20 {
-    //establish proper usages for overflows and what not
-    //ERC20 stuff, fixedpoint math stuff
-    using SafeERC20 for IERC20;
-
+contract oToken is AccessControl, ERC20Burnable {
     //Contract state
     //Options registry
-    IOption[] public options;
+    mapping(address => bool) public options;
 
     //Import custom errors
     //Custom errors save on gas and since we shouldn't have a crazy number of types of errors we can simply write custom errors...
@@ -28,7 +28,7 @@ contract otoken is AccessControl, ERC20 {
     //Constructor
     //Setup everything needed
     //Set name of token, etc
-    constructor(string name, string symbol) ERC20(name, symbol) {
+    constructor(string memory name, string memory symbol) ERC20(name, symbol) {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
 
@@ -41,21 +41,13 @@ contract otoken is AccessControl, ERC20 {
         _mint(account, amount);
     }
 
-    //exercise function
-    function exercise(uint256 amount, uint256 optionId) external {
-        _exercise(amount, optionId);
-    }
-
     //set option function
-    function setOption(address option) external onlyRole(DEFAULT_ADMIN_ROLE) {
-        options.push(option);
+    function setOption(address addr, bool isOption) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        options[addr] = isOption;
+        if (isOption) {
+            approve(addr, type(uint256).max);
+        }
     }
 
-    //set internal exercise function
-    function _exercise(uint256 amount, uint256 optionId) external {
-        _burn(msg.sender, amount);
-        options[optionId]._exercise(amount, msg.sender);
-    }
-
-    //override approve to skip option contracts
+    //override approve to skip option contracts?
 }

@@ -1,18 +1,16 @@
 pragma solidity ^0.8.13;
 
 import "./interfaces/IOption.sol";
+import "./interfaces/IOToken.sol";
 
 abstract contract BaseOption is IOption {
-    address oToken;
+    IOToken internal oToken;
 
-    constructor(address _oToken) {
+    constructor(IOToken _oToken) {
         oToken = _oToken;
     }
 
-    modifier onlyOToken() {
-        require(msg.sender == oToken, "Only oToken can call this function");
-        _;
+    function burnOToken(address from, uint256 amount) internal {
+        oToken.burnFrom(from, amount);
     }
-
-    function _exercise(uint256 amount, address to) external virtual onlyOToken {}
 }
