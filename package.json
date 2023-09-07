@@ -21,6 +21,7 @@
   "homepage": "https://github.com/0xBcamp/Option-Token-Implementation#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.3",
+    "@rari-capital/solmate": "^6.4.0",
     "hardhat": "^2.17.1",
     "solmate": "^6.2.0"
   },
