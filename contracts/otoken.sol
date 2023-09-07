@@ -12,10 +12,12 @@ contract oToken is AccessControl, ERC20Burnable {
     //Contract state
     //Options registry
     mapping(address => bool) public options;
+    IERC20 public underlyingToken;
 
     //Import custom errors
     //Custom errors save on gas and since we shouldn't have a crazy number of types of errors we can simply write custom errors...
     //instead of using requires which use more gas
+    error WithdrawNotOption();
 
     //Setup Events
     //Here we'll set up the proper events that we want to use in the token
@@ -28,8 +30,9 @@ contract oToken is AccessControl, ERC20Burnable {
     //Constructor
     //Setup everything needed
     //Set name of token, etc
-    constructor(string memory name, string memory symbol) ERC20(name, symbol) {
+    constructor(string memory name, string memory symbol, IERC20 _underlyingToken) ERC20(name, symbol) {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        underlyingToken = _underlyingToken;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,6 +44,14 @@ contract oToken is AccessControl, ERC20Burnable {
         _mint(account, amount);
     }
 
+    //called by option contracts to withdraw the underlying token
+    function withdrawUnderlying(address to, uint256 amount) external {
+        if (!options[msg.sender]) {
+            revert WithdrawNotOption();
+        }
+        underlyingToken.transfer(to, amount);
+    }
+
     //set option function
     function setOption(address addr, bool isOption) external onlyRole(DEFAULT_ADMIN_ROLE) {
         options[addr] = isOption;
@@ -49,5 +60,5 @@ contract oToken is AccessControl, ERC20Burnable {
         }
     }
 
-    //override approve to skip option contracts?
+    //override approve/burnFrom to skip option contracts?
 }
